@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "268246690458",
+    "project_id": "eipi---test",
+    "storage_bucket": "eipi---test.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268246690458:android:9257e001c53370b7fccd23",
+        "android_client_info": {
+          "package_name": "com.example.eipi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_Ku7jCrhj_c16hXT36bOcz4kJ1v6IxAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
