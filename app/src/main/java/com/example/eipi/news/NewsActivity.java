@@ -14,7 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.eipi.R;
 import com.example.eipi.home.HomeActivity;
+import com.example.eipi.profile.ProfileActivity;
 import com.example.eipi.terms.TermsActivity;
+import com.example.eipi.tasks.TasksActivity;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -72,9 +75,7 @@ public class NewsActivity extends AppCompatActivity {
         setupSearch();
         setupNavigation();
 
-        findViewById(R.id.btnFilterNews).setOnClickListener(v -> Toast.makeText(this, "Filter će biti dodan u narednom koraku", Toast.LENGTH_SHORT).show());
     }
-
     private void prepareNews() {
         allNews.add(new NewsItem("Obavijest", "Junsko-julski ispitni rokovi", "Poštovani studenti, obavještavamo vas da su objavljeni termini za junsko-julski ispitni rok.", "Studentska služba", "18.05.2026 13:57", false));
 
@@ -281,10 +282,8 @@ public class NewsActivity extends AppCompatActivity {
             finish();
         });
 
-        bottomTasks.setOnClickListener(v -> Toast.makeText(this, "Zadaci će biti dodani u narednom koraku", Toast.LENGTH_SHORT).show());
-
-        bottomProfile.setOnClickListener(v -> Toast.makeText(this, "Profil će biti dodan u narednom koraku", Toast.LENGTH_SHORT).show());
-    }
+        bottomTasks.setOnClickListener(v -> startActivity(new Intent(NewsActivity.this, TasksActivity.class)));
+        bottomProfile.setOnClickListener(v -> startActivity(new Intent(NewsActivity.this, ProfileActivity.class)));    }
 
     private int dp(int value) {
         return (int) (value * getResources().getDisplayMetrics().density);

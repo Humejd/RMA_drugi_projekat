@@ -16,6 +16,7 @@ import com.example.eipi.news.NewsActivity;
 import com.example.eipi.news.NewsDetailActivity;
 import com.example.eipi.profile.ProfileActivity;
 import com.example.eipi.terms.TermsActivity;
+import com.example.eipi.tasks.TasksActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -123,7 +124,7 @@ public class HomeActivity extends AppCompatActivity {
         bottomNews.setOnClickListener(v -> startActivity(new Intent(HomeActivity.this, NewsActivity.class)));
         bottomTerms.setOnClickListener(v -> startActivity(new Intent(HomeActivity.this, TermsActivity.class)));
         bottomHome.setOnClickListener(v -> showMessage("Već ste na Početnoj"));
-        bottomTasks.setOnClickListener(v -> showMessage("Zadaci će biti dodani u narednom koraku"));
+        bottomTasks.setOnClickListener(v -> startActivity(new Intent(HomeActivity.this, TasksActivity.class)));
         bottomProfile.setOnClickListener(v -> startActivity(new Intent(HomeActivity.this, ProfileActivity.class)));
     }
 

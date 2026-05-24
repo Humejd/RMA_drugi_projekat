@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="Theme.EIPI" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:fontFamily">sans</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">@color/background_light</item>
         <item name="android:navigationBarColor">@color/white</item>
         <item name="android:windowBackground">@color/background_light</item>
+        <item name="android:windowAnimationStyle">@style/NoActivityAnimation</item>
     </style>
+
+    <style name="NoActivityAnimation">
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+    </style>
+
 </resources>

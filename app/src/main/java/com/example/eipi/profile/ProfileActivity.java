@@ -2,7 +2,6 @@ package com.example.eipi.profile;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,23 +13,28 @@ import com.example.eipi.auth.LoginActivity;
 import com.example.eipi.home.HomeActivity;
 import com.example.eipi.model.UserProfile;
 import com.example.eipi.news.NewsActivity;
+import com.example.eipi.tasks.TasksActivity;
 import com.example.eipi.terms.TermsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private TextView tvProfileName;
-    private TextView tvProfileEmail;
-    private TextView tvProfileIndex;
-    private TextView tvProfileProgram;
-    private TextView tvProfileYear;
-    private Button btnLogout;
+    private TextView tvProfileHeaderName;
+    private TextView tvProfileHeaderSubtitle;
+
+    private LinearLayout cardStatusInfo;
+    private LinearLayout cardQuestions;
+    private LinearLayout cardGrades;
+    private LinearLayout cardAttendance;
+    private LinearLayout cardLogout;
+
     private LinearLayout bottomNews;
     private LinearLayout bottomTerms;
     private LinearLayout bottomHome;
     private LinearLayout bottomTasks;
     private LinearLayout bottomProfile;
+
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
 
@@ -42,12 +46,14 @@ public class ProfileActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance("https://eipi---test-default-rtdb.europe-west1.firebasedatabase.app");
 
-        tvProfileName = findViewById(R.id.tvProfileName);
-        tvProfileEmail = findViewById(R.id.tvProfileEmail);
-        tvProfileIndex = findViewById(R.id.tvProfileIndex);
-        tvProfileProgram = findViewById(R.id.tvProfileProgram);
-        tvProfileYear = findViewById(R.id.tvProfileYear);
-        btnLogout = findViewById(R.id.btnLogout);
+        tvProfileHeaderName = findViewById(R.id.tvProfileHeaderName);
+        tvProfileHeaderSubtitle = findViewById(R.id.tvProfileHeaderSubtitle);
+
+        cardStatusInfo = findViewById(R.id.cardStatusInfo);
+        cardQuestions = findViewById(R.id.cardQuestions);
+        cardGrades = findViewById(R.id.cardGrades);
+        cardAttendance = findViewById(R.id.cardAttendance);
+        cardLogout = findViewById(R.id.cardLogout);
 
         bottomNews = findViewById(R.id.bottomNews);
         bottomTerms = findViewById(R.id.bottomTerms);
@@ -61,7 +67,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
         loadUserProfile();
-        setupLogout();
+        setupProfileCards();
         setupNavigation();
     }
 
@@ -75,21 +81,33 @@ public class ProfileActivity extends AppCompatActivity {
                     UserProfile userProfile = snapshot.getValue(UserProfile.class);
 
                     if (userProfile != null) {
-                        tvProfileName.setText(formatFullName(userProfile.getFullName()));
-                        tvProfileEmail.setText(userProfile.getEmail());
-                        tvProfileIndex.setText("Broj indeksa: " + userProfile.getIndexNumber());
-                        tvProfileProgram.setText("Smjer: " + userProfile.getStudyProgram());
-                        tvProfileYear.setText("Godina studija: " + userProfile.getStudyYear());
+                        String fullName = formatFullName(userProfile.getFullName());
+                        String indexNumber = safeText(userProfile.getIndexNumber());
+
+                        tvProfileHeaderName.setText(fullName + " • " + indexNumber);
+                        tvProfileHeaderSubtitle.setText("IPI Akademija");
                     } else {
-                        tvProfileName.setText("Student");
-                        tvProfileEmail.setText(firebaseAuth.getCurrentUser().getEmail());
+                        showDefaultProfile();
                     }
                 })
-                .addOnFailureListener(e -> Toast.makeText(this, "Podaci profila nisu učitani", Toast.LENGTH_SHORT).show());
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Podaci profila nisu učitani", Toast.LENGTH_SHORT).show();
+                    showDefaultProfile();
+                });
     }
 
-    private void setupLogout() {
-        btnLogout.setOnClickListener(v -> {
+    private void showDefaultProfile() {
+        tvProfileHeaderName.setText("Student");
+        tvProfileHeaderSubtitle.setText("IPI Akademija");
+    }
+
+    private void setupProfileCards() {
+        cardStatusInfo.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, StatusInfoActivity.class)));
+        cardQuestions.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, QuestionsActivity.class)));
+        cardGrades.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, GradesActivity.class)));
+        cardAttendance.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this, AttendanceActivity.class)));
+
+        cardLogout.setOnClickListener(v -> {
             firebaseAuth.signOut();
             openLogin();
         });
@@ -118,7 +136,10 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
         });
 
-        bottomTasks.setOnClickListener(v -> Toast.makeText(this, "Zadaci će biti dodani u narednom koraku", Toast.LENGTH_SHORT).show());
+        bottomTasks.setOnClickListener(v -> {
+            startActivity(new Intent(ProfileActivity.this, TasksActivity.class));
+            finish();
+        });
 
         bottomProfile.setOnClickListener(v -> Toast.makeText(this, "Već ste na profilu", Toast.LENGTH_SHORT).show());
     }
@@ -140,5 +161,13 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
         return formattedName.toString().trim();
+    }
+
+    private String safeText(String value) {
+        if (value == null || value.trim().isEmpty()) {
+            return "-";
+        }
+
+        return value;
     }
 }

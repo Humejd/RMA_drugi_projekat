@@ -128,7 +128,7 @@ public class RegisterActivity extends AppCompatActivity {
                 fullName,
                 email,
                 indexNumber,
-                "Računarstvo i informatika",
+                "Informatika i računarstvo",
                 "III godina"
         );
 

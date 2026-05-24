@@ -14,6 +14,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.eipi.R;
 import com.example.eipi.home.HomeActivity;
 import com.example.eipi.news.NewsActivity;
+import com.example.eipi.profile.ProfileActivity;
+import com.example.eipi.tasks.TasksActivity;
 
 import java.util.List;
 
@@ -43,8 +45,6 @@ public class TermsActivity extends AppCompatActivity {
 
         observeExamTerms();
         setupNavigation();
-
-        findViewById(R.id.btnFilterTerms).setOnClickListener(v -> Toast.makeText(this, "Filter će biti dodan u narednom koraku", Toast.LENGTH_SHORT).show());
     }
 
     private void observeExamTerms() {
@@ -157,8 +157,15 @@ public class TermsActivity extends AppCompatActivity {
             finish();
         });
 
-        bottomTasks.setOnClickListener(v -> Toast.makeText(this, "Zadaci će biti dodani u narednom koraku", Toast.LENGTH_SHORT).show());
-        bottomProfile.setOnClickListener(v -> Toast.makeText(this, "Profil će biti dodan u narednom koraku", Toast.LENGTH_SHORT).show());
+        bottomTasks.setOnClickListener(v -> {
+            startActivity(new Intent(TermsActivity.this, TasksActivity.class));
+            finish();
+        });
+
+        bottomProfile.setOnClickListener(v -> {
+            startActivity(new Intent(TermsActivity.this, ProfileActivity.class));
+            finish();
+        });
     }
 
     private int dp(int value) {

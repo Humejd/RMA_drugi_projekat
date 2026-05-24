@@ -14,6 +14,7 @@ import com.example.eipi.R;
 import com.example.eipi.home.HomeActivity;
 import com.example.eipi.news.NewsActivity;
 import com.example.eipi.profile.ProfileActivity;
+import com.example.eipi.tasks.TasksActivity;
 import com.example.eipi.terms.TermsActivity;
 
 import java.util.ArrayList;
@@ -159,9 +160,7 @@ public class NastavaActivity extends AppCompatActivity {
             finish();
         });
 
-        bottomTasks.setOnClickListener(v -> Toast.makeText(this, "Zadaci će biti dodani u narednom koraku", Toast.LENGTH_SHORT).show());
-
-        bottomProfile.setOnClickListener(v -> {
+        bottomTasks.setOnClickListener(v -> startActivity(new Intent(NastavaActivity.this, TasksActivity.class)));        bottomProfile.setOnClickListener(v -> {
             startActivity(new Intent(NastavaActivity.this, ProfileActivity.class));
             finish();
         });

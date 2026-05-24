@@ -34,11 +34,32 @@
         <activity
             android:name=".auth.LoginActivity"
             android:exported="false" />
+
         <activity
             android:name=".profile.ProfileActivity"
             android:exported="false" />
+
         <activity
             android:name=".nastava.NastavaActivity"
+            android:exported="false" />
+
+        <activity android:name=".tasks.TaskDetailActivity"
+            android:exported="false" />
+
+        <activity android:name=".tasks.TasksActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".profile.StatusInfoActivity"
+            android:exported="false" />
+
+        <activity android:name=".profile.QuestionsActivity"
+            android:exported="false" />
+
+        <activity android:name=".profile.GradesActivity"
+            android:exported="false" />
+
+        <activity android:name=".profile.AttendanceActivity"
             android:exported="false" />
 
         <activity

@@ -1,19 +1,26 @@
 package com.example.eipi.terms;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-@Entity(tableName = "exam_terms")
+@Entity(
+        tableName = "exam_terms",
+        primaryKeys = {"id", "userId"}
+)
 public class ExamTermEntity {
 
-    @PrimaryKey
     private int id;
+
+    @NonNull
+    private String userId;
+
     private String subjectName;
     private String dateTime;
     private boolean registered;
 
-    public ExamTermEntity(int id, String subjectName, String dateTime, boolean registered) {
+    public ExamTermEntity(int id, @NonNull String userId, String subjectName, String dateTime, boolean registered) {
         this.id = id;
+        this.userId = userId;
         this.subjectName = subjectName;
         this.dateTime = dateTime;
         this.registered = registered;
@@ -21,6 +28,11 @@ public class ExamTermEntity {
 
     public int getId() {
         return id;
+    }
+
+    @NonNull
+    public String getUserId() {
+        return userId;
     }
 
     public String getSubjectName() {
@@ -37,6 +49,10 @@ public class ExamTermEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setUserId(@NonNull String userId) {
+        this.userId = userId;
     }
 
     public void setSubjectName(String subjectName) {

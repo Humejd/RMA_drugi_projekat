@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import com.example.eipi.terms.ExamTermDao;
 import com.example.eipi.terms.ExamTermEntity;
 
-@Database(entities = {ExamTermEntity.class}, version = 1, exportSchema = false)
+@Database(entities = {ExamTermEntity.class}, version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static volatile AppDatabase instance;
@@ -21,10 +21,12 @@ public abstract class AppDatabase extends RoomDatabase {
             synchronized (AppDatabase.class) {
                 if (instance == null) {
                     instance = Room.databaseBuilder(
-                            context.getApplicationContext(),
-                            AppDatabase.class,
-                            "eipi_database"
-                    ).build();
+                                    context.getApplicationContext(),
+                                    AppDatabase.class,
+                                    "eipi_database"
+                            )
+                            .fallbackToDestructiveMigration()
+                            .build();
                 }
             }
         }

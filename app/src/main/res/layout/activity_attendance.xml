@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:background="@drawable/bg_home_header"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="18dp">
+
+            <TextView
+                android:id="@+id/tvBackAttendance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← Nazad"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Prisustvo"
+                android:textColor="@color/white"
+                android:textSize="27sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pregled prisustva po predmetima"
+                android:textColor="#000000"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_white_card"
+                android:gravity="center_vertical"
+                android:padding="18dp"
+                android:text="Razvoj mobilnih aplikacija&#10;Predavanje: 13/15&#10;Vježbe: 14/15"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_white_card"
+                android:gravity="center_vertical"
+                android:padding="18dp"
+                android:text="E-usluge&#10;Predavanje: 14/15&#10;Vježbe: 13/15"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_white_card"
+                android:gravity="center_vertical"
+                android:padding="18dp"
+                android:text="Sigurnost elektronskog poslovanja&#10;Predavanje: 12/15&#10;Vježbe: 13/15"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_white_card"
+                android:gravity="center_vertical"
+                android:padding="18dp"
+                android:text="Menadžment informatičkih projekata&#10;Predavanje: 13/15&#10;Vježbe: 13/15"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/bg_white_card"
+                android:gravity="center_vertical"
+                android:padding="18dp"
+                android:text="Poduzetništvo&#10;Predavanje: 15/15&#10;Vježbe: 14/15"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
