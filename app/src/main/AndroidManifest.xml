@@ -12,29 +12,40 @@
         android:theme="@style/Theme.EIPI">
 
         <activity
-            android:name=".ui.news.NewsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.news.NewsDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.home.HomeActivity"
+            android:name=".news.NewsDetailActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.auth.RegisterActivity"
+            android:name=".news.NewsActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.auth.LoginActivity"
+            android:name=".terms.TermsActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.splash.SplashActivity"
+            android:name=".home.HomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".auth.RegisterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".nastava.NastavaActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -12,9 +12,16 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <ImageView
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:src="@drawable/ipi_logo"
+            android:scaleType="fitCenter" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
             android:text="Kreiraj e-IPI račun"
             android:textColor="@color/primary_blue"
             android:textSize="26sp"
@@ -110,7 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Već imate račun? Prijavite se"
-            android:textColor="@color/accent_teal"
+            android:textColor="@color/primary_blue"
             android:textSize="15sp"
             android:textStyle="bold" />
 

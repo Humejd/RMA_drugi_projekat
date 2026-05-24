@@ -1,4 +1,4 @@
-package com.example.eipi.ui.splash;
+package com.example.eipi.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,8 @@ import android.os.Looper;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.eipi.R;
-import com.example.eipi.ui.auth.LoginActivity;
-import com.example.eipi.ui.home.HomeActivity;
+import com.example.eipi.auth.LoginActivity;
+import com.example.eipi.home.HomeActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends AppCompatActivity {

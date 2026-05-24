@@ -1,4 +1,4 @@
-package com.example.eipi.ui.news;
+package com.example.eipi.news;
 
 import android.os.Bundle;
 import android.widget.TextView;

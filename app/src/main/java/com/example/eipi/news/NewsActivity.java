@@ -1,4 +1,4 @@
-package com.example.eipi.ui.news;
+package com.example.eipi.news;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,10 +13,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.eipi.R;
-import com.example.eipi.ui.home.HomeActivity;
+import com.example.eipi.home.HomeActivity;
+import com.example.eipi.terms.TermsActivity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class NewsActivity extends AppCompatActivity {
 
@@ -61,6 +67,7 @@ public class NewsActivity extends AppCompatActivity {
         bottomProfile = findViewById(R.id.bottomProfile);
 
         prepareNews();
+        sortNewsByDate();
         showNews(allNews);
         setupSearch();
         setupNavigation();
@@ -69,11 +76,34 @@ public class NewsActivity extends AppCompatActivity {
     }
 
     private void prepareNews() {
-        allNews.add(new NewsItem("Upozorenje", "Junsko-julski ispitni rokovi", "Poštovani studenti, obavještavamo vas da su objavljeni termini za junsko-julski ispitni rok.", "Studentska služba", "18.05.2026 13:57", true));
+        allNews.add(new NewsItem("Obavijest", "Junsko-julski ispitni rokovi", "Poštovani studenti, obavještavamo vas da su objavljeni termini za junsko-julski ispitni rok.", "Studentska služba", "18.05.2026 13:57", false));
+
         allNews.add(new NewsItem("Obavijest", "Obavještenje povodom anketiranja studenata", "Obavještenje povodom predstojećeg anketiranja studenata o kvalitetu nastavnog procesa.", "IPI Akademija", "06.05.2026 14:10", false));
+
         allNews.add(new NewsItem("Obavijest", "Aprilski ispitni rok", "Obavještavamo vas da su aktivni ispitni termini za aprilski ispitni rok.", "Studentska služba", "27.03.2026 15:38", false));
-        allNews.add(new NewsItem("Obavijest", "Erasmus+ stipendije", "Objavljene su informacije o Erasmus+ stipendijama za zimski semestar akademske 2026/2027. godine.", "IPI Akademija", "02.02.2026 08:52", false));
-        allNews.add(new NewsItem("Upozorenje", "Januarsko-februarski popravni ispitni rok", "Ispitni termini za popravni januarsko-februarski rok dostupni su studentima kroz aplikaciju.", "Studentska služba", "15.01.2026 11:30", true));
+
+        allNews.add(new NewsItem("Obavijest", "Raspored nastave za ljetni semestar", "Obavještavaju se studenti da je objavljen raspored nastave za ljetni semestar. Studenti mogu pregledati termine predavanja i vježbi u sekciji Nastava na početnoj stranici aplikacije.", "IPI Akademija", "10.02.2026 09:00", false));
+
+        allNews.add(new NewsItem("Obavijest", "Januarsko-februarski popravni ispitni rok", "Ispitni termini za popravni januarsko-februarski rok dostupni su studentima kroz aplikaciju.", "Studentska služba", "15.01.2026 11:30", false));
+    }
+
+    private void sortNewsByDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault());
+
+        Collections.sort(allNews, (first, second) -> {
+            try {
+                Date firstDate = dateFormat.parse(first.date);
+                Date secondDate = dateFormat.parse(second.date);
+
+                if (firstDate == null || secondDate == null) {
+                    return 0;
+                }
+
+                return secondDate.compareTo(firstDate);
+            } catch (ParseException e) {
+                return 0;
+            }
+        });
     }
 
     private void setupSearch() {
@@ -234,17 +264,25 @@ public class NewsActivity extends AppCompatActivity {
             intent.putExtra("date", item.date);
             startActivity(intent);
         });
+
         return card;
     }
 
     private void setupNavigation() {
         bottomNews.setOnClickListener(v -> Toast.makeText(this, "Već ste na ekranu Vijesti", Toast.LENGTH_SHORT).show());
-        bottomTerms.setOnClickListener(v -> Toast.makeText(this, "Termini će biti dodani u narednom koraku", Toast.LENGTH_SHORT).show());
+
+        bottomTerms.setOnClickListener(v -> {
+            startActivity(new Intent(NewsActivity.this, TermsActivity.class));
+            finish();
+        });
+
         bottomHome.setOnClickListener(v -> {
             startActivity(new Intent(NewsActivity.this, HomeActivity.class));
             finish();
         });
+
         bottomTasks.setOnClickListener(v -> Toast.makeText(this, "Zadaci će biti dodani u narednom koraku", Toast.LENGTH_SHORT).show());
+
         bottomProfile.setOnClickListener(v -> Toast.makeText(this, "Profil će biti dodan u narednom koraku", Toast.LENGTH_SHORT).show());
     }
 

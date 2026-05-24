@@ -23,13 +23,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="175dp"
+                android:layout_height="115dp"
                 android:background="@drawable/bg_home_header"
                 android:gravity="bottom"
                 android:orientation="horizontal"
                 android:paddingStart="24dp"
                 android:paddingEnd="24dp"
-                android:paddingBottom="30dp">
+                android:paddingBottom="18dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -57,26 +57,44 @@
 
                 </LinearLayout>
 
-                <TextView
+                <ImageView
+                    android:id="@+id/ivHeaderLogo"
                     android:layout_width="58dp"
                     android:layout_height="58dp"
                     android:background="@drawable/bg_notification_button"
-                    android:gravity="center"
-                    android:text="🔔"
-                    android:textSize="26sp" />
+                    android:padding="7dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ipi_logo" />
 
             </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="28dp"
                 android:layout_marginEnd="24dp"
-                android:text="Nastava"
-                android:textColor="@color/text_dark"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nastava"
+                    android:textColor="@color/text_dark"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSeeAllNastava"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vidi sve"
+                    android:textColor="@color/accent_teal"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -94,80 +112,164 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="180dp"
-                        android:layout_height="160dp"
+                        android:layout_width="240dp"
+                        android:layout_height="175dp"
                         android:layout_marginEnd="14dp"
-                        android:background="@drawable/bg_subject_card"
+                        android:background="@drawable/bg_lecture_card"
                         android:orientation="vertical"
-                        android:padding="18dp">
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:text="Predavanje"
+                            android:textColor="#000000"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
+                            android:layout_marginTop="8dp"
                             android:layout_weight="1"
                             android:text="Razvoj mobilnih aplikacija"
-                            android:textColor="@color/purple_text"
-                            android:textSize="21sp"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="dr.sc. Kurtic Selena"
-                            android:textColor="@color/purple_text"
-                            android:textSize="15sp" />
+                            android:text="mr. Selena Kurtić, dipl.ing.el."
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Ponedjeljak • 17:00 – 18:35"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Učionica: RC1"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="180dp"
-                        android:layout_height="160dp"
+                        android:layout_width="240dp"
+                        android:layout_height="175dp"
                         android:layout_marginEnd="14dp"
-                        android:background="@drawable/bg_subject_card"
+                        android:background="@drawable/bg_exercise_card"
                         android:orientation="vertical"
-                        android:padding="18dp">
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:text="Vježbe"
+                            android:textColor="#000000"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
+                            android:layout_marginTop="8dp"
                             android:layout_weight="1"
-                            android:text="Baze podataka"
-                            android:textColor="@color/purple_text"
-                            android:textSize="21sp"
+                            android:text="Razvoj mobilnih aplikacija"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="mr. Bećić Admir"
-                            android:textColor="@color/purple_text"
-                            android:textSize="15sp" />
+                            android:text="mr. Selena Kurtić, dipl.ing.el."
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Ponedjeljak • 18:35 – 21:00"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Učionica: RC1"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="180dp"
-                        android:layout_height="160dp"
+                        android:layout_width="240dp"
+                        android:layout_height="175dp"
                         android:layout_marginEnd="14dp"
-                        android:background="@drawable/bg_subject_card"
+                        android:background="@drawable/bg_lecture_card"
                         android:orientation="vertical"
-                        android:padding="18dp">
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:text="Predavanje"
+                            android:textColor="#000000"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
+                            android:layout_marginTop="8dp"
                             android:layout_weight="1"
-                            android:text="Web programiranje"
-                            android:textColor="@color/purple_text"
-                            android:textSize="21sp"
+                            android:text="Menadžment informatičkih projekata"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="dr.sc. Žigić Almir"
-                            android:textColor="@color/purple_text"
-                            android:textSize="15sp" />
+                            android:text="prof. dr. sc. Dino Arnaut"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Utorak • 16:35 – 18:10"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Učionica: A"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -204,8 +306,9 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/cardHomeNewsOne"
                 android:layout_width="match_parent"
-                android:layout_height="128dp"
+                android:layout_height="158dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="18dp"
                 android:layout_marginEnd="24dp"
@@ -214,26 +317,26 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="78dp"
+                    android:layout_width="72dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_news_warning_left"
+                    android:background="@drawable/bg_news_info_left"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="⚠"
-                        android:textColor="@color/warning_icon"
-                        android:textSize="32sp" />
+                        android:text="▤"
+                        android:textColor="@color/info_icon"
+                        android:textSize="30sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Upozorenje"
-                        android:textColor="@color/warning_icon"
-                        android:textSize="12sp" />
+                        android:text="Obavijest"
+                        android:textColor="@color/info_icon"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
@@ -242,8 +345,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:paddingStart="18dp"
-                    android:paddingTop="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingTop="14dp"
                     android:paddingEnd="14dp"
                     android:paddingBottom="12dp">
 
@@ -253,22 +356,27 @@
                         android:singleLine="true"
                         android:text="Junsko-julski ispitni rokovi"
                         android:textColor="@color/text_dark"
-                        android:textSize="18sp"
+                        android:textSize="17sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:singleLine="true"
-                        android:text="Poštovani studenti, obavještavamo vas da su..."
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="Poštovani studenti, obavještavamo vas da su objavljeni termini za junsko-julski ispitni rok."
                         android:textColor="@color/text_dark"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
                         android:gravity="bottom"
                         android:orientation="horizontal">
 
@@ -294,8 +402,9 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/cardHomeNewsTwo"
                 android:layout_width="match_parent"
-                android:layout_height="128dp"
+                android:layout_height="158dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="14dp"
                 android:layout_marginEnd="24dp"
@@ -304,7 +413,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="78dp"
+                    android:layout_width="72dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_news_info_left"
                     android:gravity="center"
@@ -315,7 +424,7 @@
                         android:layout_height="wrap_content"
                         android:text="▤"
                         android:textColor="@color/info_icon"
-                        android:textSize="32sp" />
+                        android:textSize="30sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -323,7 +432,7 @@
                         android:layout_marginTop="6dp"
                         android:text="Obavijest"
                         android:textColor="@color/info_icon"
-                        android:textSize="12sp" />
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
@@ -332,33 +441,39 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:paddingStart="18dp"
-                    android:paddingTop="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingTop="14dp"
                     android:paddingEnd="14dp"
                     android:paddingBottom="12dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:ellipsize="end"
                         android:singleLine="true"
                         android:text="Obavještenje povodom anketiranja studenata"
                         android:textColor="@color/text_dark"
-                        android:textSize="18sp"
+                        android:textSize="17sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:singleLine="true"
-                        android:text="Obavještenje povodom predstojećeg anketiranja..."
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="Obavještenje povodom predstojećeg anketiranja studenata o kvalitetu nastavnog procesa."
                         android:textColor="@color/text_dark"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
                         android:gravity="bottom"
                         android:orientation="horizontal">
 
@@ -384,8 +499,9 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/cardHomeNewsThree"
                 android:layout_width="match_parent"
-                android:layout_height="128dp"
+                android:layout_height="158dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="14dp"
                 android:layout_marginEnd="24dp"
@@ -395,7 +511,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="78dp"
+                    android:layout_width="72dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_news_info_left"
                     android:gravity="center"
@@ -406,7 +522,7 @@
                         android:layout_height="wrap_content"
                         android:text="▤"
                         android:textColor="@color/info_icon"
-                        android:textSize="32sp" />
+                        android:textSize="30sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -414,7 +530,7 @@
                         android:layout_marginTop="6dp"
                         android:text="Obavijest"
                         android:textColor="@color/info_icon"
-                        android:textSize="12sp" />
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
@@ -423,8 +539,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical"
-                    android:paddingStart="18dp"
-                    android:paddingTop="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingTop="14dp"
                     android:paddingEnd="14dp"
                     android:paddingBottom="12dp">
 
@@ -434,22 +550,27 @@
                         android:singleLine="true"
                         android:text="Aprilski ispitni rok"
                         android:textColor="@color/text_dark"
-                        android:textSize="18sp"
+                        android:textSize="17sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:singleLine="true"
-                        android:text="Obavještavamo vas da su aktivni ispitni termini..."
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="Obavještavamo vas da su aktivni ispitni termini za aprilski ispitni rok."
                         android:textColor="@color/text_dark"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
                         android:gravity="bottom"
                         android:orientation="horizontal">
 
@@ -473,6 +594,7 @@
                 </LinearLayout>
 
             </LinearLayout>
+
 
         </LinearLayout>
 

@@ -1,4 +1,4 @@
-package com.example.eipi.ui.auth;
+package com.example.eipi.auth;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.eipi.R;
+import com.example.eipi.home.HomeActivity;
 import com.example.eipi.model.UserProfile;
-import com.example.eipi.ui.home.HomeActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance("https://eipi---test-default-rtdb.europe-west1.firebasedatabase.app");
 
         etFullName = findViewById(R.id.etFullName);
         etIndexNumber = findViewById(R.id.etIndexNumber);
